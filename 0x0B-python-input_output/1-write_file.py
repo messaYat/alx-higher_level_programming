@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 # Sangwani P Zyambo
-
-""" Defines a function that append a string at
-    the end of a text file(UTF8).
+""" Defines a function that writes a string
+    to a text file (UTF8) and returns the number
+    of characters written:
 """
 
 
-def append_write(filename="", text=""):
-    """ appends to a file if it exits
-        otherwise create the file and write to it.
-        And return the number of characters added.
+def write_file(filename="", text=""):
+    """ writes text to a file and return the number of chars written.
+        param: (filename) - the file to write to.
+        param: (text) - the string to be written to file.
     """
-    with open(filename, 'a') as f:
+    with open(filename, 'w') as f:
         num_of_chars = 0
-        for i in text:
+        for i in range(len(text)):
+            f.write(text[i])
             num_of_chars += 1
-            f.write(i)
     return num_of_chars
